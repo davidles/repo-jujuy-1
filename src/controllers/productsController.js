@@ -150,9 +150,9 @@ const controller = {
 		
 		fs.writeFileSync(productsFilePath, JSON.stringify(newList));
 		
-		const newProd = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+		const nuevoArrProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		// Do the magic
-		res.render('products',{productsList: newProd});
+		res.render('products',{productsList: nuevoArrProductos});
 	}
 };
 
