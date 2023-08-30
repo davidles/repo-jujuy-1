@@ -143,14 +143,14 @@ const controller = {
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
 		// Do the magic
-		const newProd = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-	
+		
 		const { id } = req.params;
-
+		
 		const newList = products.filter((prod) => prod.id !== id);
-
+		
 		fs.writeFileSync(productsFilePath, JSON.stringify(newList));
-
+		
+		const newProd = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		// Do the magic
 		res.render('products',{productsList: newProd});
 	}
